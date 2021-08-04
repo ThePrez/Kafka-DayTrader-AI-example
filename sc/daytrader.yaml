@@ -1,0 +1,20 @@
+name: DayTrader
+dir: /home/OCPDT/wlp/bin
+start_cmd: server start dt7server
+stop_cmd: server stop dt7server
+
+check_alive: port
+check_alive_criteria: 7276
+batch_mode: yes
+sbmjob_jobname: dt7server
+sbmjob_opts: JOBQ(QUSRNOMAX) CCSID(37)
+
+
+environment_vars:
+  - "JAVA_HOME=/QOpenSys/QIBM/ProdData/JavaVM/jdk80/64bit"
+  - "JAVA_TOOL_OPTIONS=-Djava.net.preferIPv4Stack=true -Xnoaot -Xjit:exclude={org/apache/kafka/common/requests/MetadataResponse.partitionMetaToInfo}"
+  - "WLP_SKIP_UMASK=true"
+
+groups:
+  - "aikafka"
+  - "default"

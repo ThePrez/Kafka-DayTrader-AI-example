@@ -1,0 +1,20 @@
+name: Apache Zookeeper Server using OpenJDK
+dir: /home/OCPDT/kafka/config
+start_cmd: ../bin/zookeeper-server-start.sh zookeeper.properties
+stop_cmd: ../bin/zookeeper-server-stop.sh zookeeper.properties
+
+check_alive: port
+check_alive_criteria: 2181
+
+batch_mode: yes
+sbmjob_jobname: zookeeper
+
+environment_is_inheriting_vars: false
+environment_vars:
+  - "JAVA_HOME=/QOpenSys/pkgs/lib/jvm/openjdk-11"
+  - "PATH=/QOpenSys/pkgs/lib/jvm/openjdk-11/bin:/QOpenSys/pkgs/bin:/QOpenSys/usr/bin:/usr/ccs/bin:/QOpenSys/usr/bin/X11:/usr/sbin:.:/usr/bin"
+  - "JAVA_TOOL_OPTIONS=-Djava.net.preferIPv4Stack=true"
+
+groups:
+  - "aikafka"
+  - "default"

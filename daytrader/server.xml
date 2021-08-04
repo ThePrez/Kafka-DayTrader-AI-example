@@ -1,0 +1,71 @@
+<server>
+    <featureManager>
+        <feature>ejb-3.2</feature>
+        <feature>servlet-3.1</feature>
+        <feature>jsf-2.2</feature>
+        <feature>jpa-2.1</feature>
+        <feature>jmsMdb-3.2</feature>
+        <feature>wasJmsServer-1.0</feature>
+        <feature>wasJmsClient-2.0</feature>
+        <feature>cdi-1.2</feature>
+        <feature>websocket-1.0</feature>
+        <feature>concurrent-1.0</feature>
+        <feature>jsonp-1.0</feature>
+        <feature>beanValidation-1.1</feature>
+    </featureManager>
+
+<!-- allow reuse of 'busy' ports for fast server recycling on linux (where ports remain blocked for up to 2 mins after server stops) ${tradelite.http.port} set in bootstrap.properties --> 
+<httpEndpoint id="defaultHttpEndpoint" host="*" httpPort="10200" httpsPort="9443"> 
+	<tcpOptions soReuseAddr="true" /> 
+	<httpOptions maxKeepAliveRequests="-1" />
+</httpEndpoint>
+
+<iiopEndpoint id="defaultIiopEndpoint" iiopPort="10201" iiopsPort="10202"/>
+
+<application context-root="daytrader" type="ear" id="dt7server" name="dt7server" location="/home/ocpdt/wlp/usr/shared/apps/daytrader-ee7.ear">
+</application>
+
+<applicationMonitor dropinsEnabled="false" updateTrigger="mbean"/> <config updateTrigger="disabled"/>
+
+
+<connectionManager id="conMgr1" agedTimeout="-1" connectionTimeout="5s" maxIdleTime="-1" maxPoolSize="100" minPoolSize="100" purgePolicy="FailingConnectionOnly" reapTime="-1"/>
+
+<jdbcDriver id="DB2iToolbox" libraryRef="DB2iToolboxLib"/> <library id="DB2iToolboxLib" filesetRef="DB2iToolboxFileset"/> <fileset id="DB2iToolboxFileset" dir="/QIBM/ProdData/OS400/jt400/lib" includes="jt400Native.jar"/>
+
+<authData id="TradeDataSourceAuthData" user="ocpdt" password="ocpdt"/>
+<authData id="TradeAdminAuthData" user="ocpdt" password="ocpdt"/>
+
+<dataSource jndiName="jdbc/TradeDataSource" id="DefaultDataSource" jdbcDriverRef="DB2iToolbox" connectionManagerRef="conMgr1" statementCacheSize="60" isolationLevel="TRANSACTION_READ_COMMITTED"> <properties serverName="localhost" portNumber="8471" databaseName="localhost" driverType="4" libraries="ocpdt" user="ocpdt" password="ocpdt"/> </dataSource>
+
+<messagingEngine id="defaultME">
+  <queue id="TradeBrokerQueue" />
+  <topicSpace id="TradeTopicSpace" />
+</messagingEngine>
+
+<jmsQueueConnectionFactory jndiName="jms/TradeBrokerQCF" connectionManagerRef="ConMgr3">  
+  <properties.wasJms />
+</jmsQueueConnectionFactory>
+<connectionManager id="ConMgr3" maxPoolSize="20"/>
+
+<jmsTopicConnectionFactory jndiName="jms/TradeStreamerTCF" connectionManagerRef="ConMgr4">
+ <properties.wasJms />
+</jmsTopicConnectionFactory>
+<connectionManager id="ConMgr4" maxPoolSize="20"/>
+
+<jmsQueue id="TradeBrokerQueue" jndiName="jms/TradeBrokerQueue">
+  <properties.wasJms queueName="TradeBrokerQueue" deliveryMode="NonPersistent" />
+</jmsQueue>
+
+<jmsTopic id="TradeStreamerTopic" jndiName="jms/TradeStreamerTopic">
+   <properties.wasJms topicSpace="TradeTopicSpace" deliveryMode="NonPersistent" />
+</jmsTopic>
+
+<jmsActivationSpec id="eis/TradeBrokerMDB" >
+  <properties.wasJms destinationRef="TradeBrokerQueue" />
+</jmsActivationSpec>
+
+<jmsActivationSpec id="eis/TradeStreamerMDB" >
+  <properties.wasJms destinationRef="TradeStreamerTopic" destinationType="javax.jms.Topic" />
+</jmsActivationSpec>
+
+</server>

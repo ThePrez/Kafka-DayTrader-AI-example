@@ -1,0 +1,22 @@
+name: Camel Route for DayTrader Kafka streaming
+dir: /home/OCPDT/Kafka-DayTrader-AI-example/camel
+start_cmd: mvn exec:java
+
+check_alive: jobname
+check_alive_criteria: dtcamel
+
+batch_mode: yes
+sbmjob_jobname: dtcamel
+sbmjob_opts: JOBQ(QUSRNOMAX)
+
+environment_vars:
+  - "PATH=/QOpenSys/pkgs/bin:/QOpenSys/usr/bin:/usr/bin"
+  - "JAVA_HOME=/QOpenSys/QIBM/ProdData/JavaVM/jdk80/64bit"
+  - "JAVA_TOOL_OPTIONS=-Djava.net.preferIPv4Stack=true -Xnoaot -Xjit:exclude={org/apache/kafka/common/requests/MetadataResponse.partitionMetaToInfo}"
+service_dependencies:
+  - "kafka"
+
+groups:
+  - "camel"
+  - "aikafka"
+  - "default"
