@@ -57,7 +57,7 @@ DONE!!
 
 
 
-## Offline install (without Internet access)
+## Offline install (without Internet access) -- WARNING: untested and unlikely to work!
 
 First, download the following files and upload them to a directory on IBM i:
 - https://github.com/ThePrez/ServiceCommander-IBMi/releases/download/v0.4.1/sc-0.4.1-0.ibmi7.2.ppc64.rpm
