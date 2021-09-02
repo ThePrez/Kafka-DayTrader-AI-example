@@ -14,7 +14,7 @@ The installation of this demo project installs all of the following on IBM i:
 - [Apache Zookeeper](https://zookeeper.apache.org/), a service for powering distributed applications (used by Kafka)
 - [Apache Camel](https://camel.apache.org), an integration library (used for integrating Db2 transactions with Kafka)
 
-This project also requires an IBM i user profile and schema to be created of the same name. These are used by the DayTrader application. 
+This project also requires an IBM i user profile and schema to be created of the same name, which the installation script will create. These are used by the DayTrader application. 
 
 
 # Installation prerequisites
