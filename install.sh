@@ -9,7 +9,7 @@ export JAVA_HOME="/QOpenSys/QIBM/ProdData/JavaVM/jdk80/64bit"
 : ${INSTALLSCHEMA="OCPDT"}
 INSTALLSCHEMA=$(echo $INSTALLSCHEMA | tr -cd '[:alnum:]' | tr '[:lower:]' '[:upper:]'| head -c 10)
 LIBERTY_SERVER="dt7server"
-USRPRF_PW=$(cat /dev/urandom | tr -cd '[:upper:]' | head -c 10)
+USRPRF_PW=$(cat /dev/urandom | tr -cd '[A-Z0-9]' | head -c 10)
 : ${INSTALLUSER="$INSTALLSCHEMA"}
 #INSTALLUSER=$(echo $INSTALLUSER | tr -cd '[:alnum:]' | tr '[:lower:]' '[:upper:]')
 INSTALLUSER=$INSTALLSCHEMA
@@ -29,14 +29,16 @@ echo " Installing requisite open source packages..."
 echo "==============================================="
 #OFFLINE_COPY_HERE
 yum install ca-certificates-mozilla
-yum install wget unzip gzip git tar-gnu openjdk-11 maven coreutils-gnu sed-gnu grep-gnu https://github.com/ThePrez/ServiceCommander-IBMi/releases/download/v0.3.4/sc-0.3.4-0.ibmi7.2.ppc64.rpm
+yum install wget unzip gzip git tar-gnu openjdk-11 maven coreutils-gnu sed-gnu grep-gnu https://github.com/ThePrez/ServiceCommander-IBMi/releases/download/v0.3.4/sc-0.4.1-0.ibmi7.2.ppc64.rpm
 hash -r 
 
 echo "==============================================="
 echo " Fetching AI Sample Code..."
 echo "==============================================="
-rm -rf Kafka-DayTrader-AI-example
-git clone --depth 1 git@github.com:ThePrez/Kafka-DayTrader-AI-example.git
+rm -rf Kafka-DayTrader-AI-example* example.zip
+curl -L https://github.com/ThePrez/Kafka-DayTrader-AI-example/archive/refs/heads/main.zip -o example.zip
+unzip example.zip
+mv Kafka-DayTrader-AI-example-main Kafka-DayTrader-AI-example
 
 echo "==============================================="
 echo " Creating $INSTALLUSER user..."
