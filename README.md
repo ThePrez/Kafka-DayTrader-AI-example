@@ -17,7 +17,7 @@ The installation of this demo project installs all of the following on IBM i:
 This project also requires an IBM i user profile and schema to be created of the same name, which the installation script will create. These are used by the DayTrader application. 
 
 
-# Installation prerequisites
+# IBM i component Installation
 
 - Installation requires that you have the `yum` ecosystem installed (see [http://ibm.biz/ibmi-rpms](http://ibm.biz/ibmi-rpms))
 - You should run any documented commands in an SSH terminal session
@@ -93,3 +93,6 @@ DONE!!
    To stress test with Apache JMeter:
       /QOpenSys/ocp2/jmeter/bin/jmeter -n -t /QOpenSys/ocp2/daytrader7.jmx -JHOST=127.0.0.1 -JPORT=10200 -JTHREADS=10 -JDURATION=120 -l jmeter_log.txt
 ```
+
+# AI Component installation
+See [the README for the AI component](AI_Component/README.md)
