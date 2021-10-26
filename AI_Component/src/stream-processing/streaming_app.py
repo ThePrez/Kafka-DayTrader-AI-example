@@ -25,7 +25,6 @@ if not "KAFKA_BROKER" in os.environ:
 
 app = faust.App(
     "my-app",
-    #broker="kafka://10.7.19.71:9092",
     broker=os.environ["KAFKA_BROKER"],
     value_serializer="raw"
 )

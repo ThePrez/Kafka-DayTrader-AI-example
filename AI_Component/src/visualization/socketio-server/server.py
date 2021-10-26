@@ -23,8 +23,6 @@ app = socketio.WSGIApp(sio, static_files={
 @sio.on("connect")
 def connect(sid, environ):
     print('connect ', sid)
-    sio.emit("voltageData", {"v1": "231.09", "v2": "235.15", "v3": "238.82"})
-
 
 @sio.on("my message")
 def my_message(sid, data):
