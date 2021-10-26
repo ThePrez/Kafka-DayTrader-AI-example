@@ -2,26 +2,25 @@
 
 ## Environment setup
 
+* ensure that Git repository is cloned
+
+```
+cd AI_Component/
+```
+
 * install conda
 
 ```
 wget https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-ppc64le.sh
-sh Anaconda3-2021.05-Linux-ppc64le.sh # accept license and leave default values
-source ~/.bashrc
-```
-
-* clone that Git repository (requires a token from your IBM Github account
-
-```
-git clone https://github.ibm.com/P10-IBMi-AI-Proof-Point/AI-Usecases/
-cd AI-Usecases/
+sh Anaconda3-2021.05-Linux-ppc64le.sh -b
+/root/anaconda3/bin/conda init && source /root/.bashrc
 ```
 
 * restore "opence" conda environment
 
 ```
 conda env create -f opence-conda-env.yml
-conda activate opence
+echo "conda activate opence" >> /root/.bashrc && source /root/.bashrc
 ```
 
 [BACKUP] With ausgsa channel:
@@ -41,28 +40,28 @@ podman run -d --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-manage
 ```
 
 2. Download trained model checkpoint 
-from ["IBM i P10 AI Proof Point" Box folder](https://ibm.ent.box.com/folder/141751006062)
-and place the `n-beats.ckpt` file in the `src/inference-server/` folder
+using [this link](https://ibm.box.com/v/nbeatsonnxmodel)
+and place the `n-beats.onnx` file in the `src/inference-server/` folder
 
 3. Run inference server
 
 ```
-# inference_server.py requires training/utils.py, add it to PYTHONPATH
-export PYTHONPATH=/root/AI-Usecases/src/training:
-cd src/inference-server/ && python3 inference_server.py
+cd src/inference-server/
+PYTHONPATH=/root/AI-Usecases/src/training:$PYTHONPATH python3 inference_server_onnx.py
+
 ```
 
 4. Run streaming service (update the `KAFKA_BROKER` variable to point to the URL and port of Kafka)
 
 ```
-cd src/stream-processing/
+cd ../stream-processing/
 KAFKA_BROKER="kafka://10.20.30.40:9092" python3 streaming_app.py worker -l info
 ```
 
 5. Run SocketIO server
 
 ```
-cd src/visualization/ && python3 ./socketio-server/server.py
+cd ../visualization/ && python3 ./socketio-server/server.py
 ```
 
 6. Run Vue web server

@@ -1,170 +1,85 @@
 name: opence
 channels:
-  - http://ausgsa.ibm.com/projects/o/open-ce/conda/open-ce-r1.2.2
+  - https://opence.mit.edu/
+  - conda-forge
   - defaults
 dependencies:
-  - _libgcc_mutex=0.1=main
-  - _pytorch_select=1.0=cpu_2
-  - amqp=5.0.6=pyhd3eb1b0_0
-  - av=8.0.2=py38he55a316_2
-  - blas=1.0=openblas
-  - brotlipy=0.7.0=py38h140841e_1003
-  - bzip2=1.0.8=h7b6447c_0
-  - ca-certificates=2021.7.5=h6ffa863_1
-  - certifi=2021.5.30=py38h6ffa863_0
-  - cffi=1.14.6=py38hf9d8e4b_0
-  - chardet=4.0.0=py38h6ffa863_1003
-  - click=7.1.2=pyhd3eb1b0_0
-  - cryptography=3.4.7=py38h7ed74fa_0
-  - dnspython=1.16.0=py38_0
-  - eventlet=0.31.1=pyhd3eb1b0_0
-  - ffmpeg=4.2.2=h20bf706_0
-  - flask=1.1.2=pyhd3eb1b0_0
-  - freetype=2.10.4=h5ab3b9f_0
-  - future=0.18.2=py38_1
-  - gmp=6.2.1=h29c3540_0
-  - gnutls=3.6.15=hd39c10c_0
-  - icu=68.1=h29c3540_0
-  - idna=2.10=pyhd3eb1b0_0
-  - importlib-metadata=3.10.0=py38h6ffa863_0
-  - itsdangerous=2.0.1=pyhd3eb1b0_0
-  - jinja2=3.0.1=pyhd3eb1b0_0
-  - joblib=1.0.1=pyhd3eb1b0_0
-  - jpeg=9b=hcb7ba68_2
-  - kombu=5.0.2=py38h6ffa863_1
-  - lame=3.100=h7b6447c_0
-  - lcms2=2.12=h2045e0b_0
-  - ld_impl_linux-ppc64le=2.33.1=h0f24833_7
-  - leveldb=1.20=hf484d3e_1
-  - libffi=3.3=he6710b0_2
-  - libgcc-ng=8.2.0=h822a55f_1
-  - libgfortran-ng=7.3.0=h822a55f_1
-  - libidn2=2.3.2=h140841e_0
-  - libopenblas=0.3.13=h989ec91_0
-  - libopus=1.3.1=h7b6447c_0
-  - libpng=1.6.37=hbc83047_0
-  - libprotobuf=3.11.2=hd408876_0
-  - libstdcxx-ng=8.2.0=h822a55f_1
-  - libtasn1=4.16.0=h140841e_0
-  - libtiff=4.2.0=h781710b_0
-  - libunistring=0.9.10=h140841e_0
-  - libuv=1.40.0=h7b6447c_0
-  - libvpx=1.7.0=hf484d3e_0
-  - libwebp-base=1.2.0=h140841e_0
-  - lmdb=0.9.29=h29c3540_0
-  - lz4-c=1.9.3=h29c3540_1
-  - markupsafe=2.0.1=py38h140841e_0
-  - ncurses=6.2=he6710b0_1
-  - nettle=3.7.3=hdc176a3_1
-  - networkx=2.6.2=pyhd3eb1b0_0
-  - nodejs=14.8.0=h00b27dd_0
-  - numactl=2.0.12=h5991e57_3
-  - numpy=1.19.2=py38h6163131_0
-  - numpy-base=1.19.2=py38h75fe3a5_0
-  - olefile=0.46=py_0
-  - onnx=1.6.0=h15a9e31_py38_pb3.11.2_8
-  - openh264=2.1.0=hd408876_0
-  - openjpeg=2.3.0=h05c96fa_1
-  - openssl=1.1.1k=h140841e_0
-  - pandas=1.2.4=py38h29c3540_0
-  - patsy=0.5.1=py38_0
-  - pillow=8.3.1=py38hc3d3e38_0
-  - pip=21.2.2=py38h6ffa863_0
-  - protobuf=3.11.2=py38he6710b0_0
-  - pycparser=2.20=py_2
-  - pyopenssl=20.0.1=pyhd3eb1b0_1
-  - pysocks=1.7.1=py38h6ffa863_0
-  - python=3.8.11=h836d2c2_1
-  - python-dateutil=2.8.2=pyhd3eb1b0_0
-  - pytorch-base=1.7.1=h1234567_cpu_py38_pb3.11.2_18
-  - pytorch-cpu=1.7.1=py38_3
-  - pytz=2021.1=pyhd3eb1b0_0
-  - pyyaml=5.4.1=py38h140841e_1
-  - readline=8.1=h140841e_0
-  - requests=2.25.1=pyhd3eb1b0_0
-  - scikit-learn=0.24.2=py38haab0e66_0
-  - scipy=1.6.2=py38h73102cc_1
-  - sentencepiece=0.1.91=hca62b4b_py38_pb3.11.2_5
-  - setuptools=52.0.0=py38h6ffa863_0
-  - six=1.15.0=py38h6ffa863_0
-  - snappy=1.1.8=he6710b0_0
-  - sqlite=3.36.0=hd7247d8_0
-  - statsmodels=0.12.2=py38h140841e_0
-  - tabulate=0.8.9=py38h6ffa863_0
-  - threadpoolctl=2.2.0=pyhb85f177_0
-  - tk=8.6.10=hbc83047_0
-  - torchtext=0.8.1=py38_6
-  - torchvision-base=0.8.2=cpu_py38_7
-  - tqdm=4.62.0=pyhd3eb1b0_1
-  - tzdata=2021a=h52ac0ba_0
-  - urllib3=1.26.6=pyhd3eb1b0_1
-  - vine=5.0.0=py_0
-  - werkzeug=1.0.1=pyhd3eb1b0_0
-  - wheel=0.36.2=pyhd3eb1b0_0
-  - x264=1!157.20191217=h7b6447c_0
-  - xz=5.2.5=h7b6447c_0
-  - yaml=0.2.5=h7b6447c_0
-  - zipp=3.5.0=pyhd3eb1b0_0
-  - zlib=1.2.11=h7b6447c_3
-  - zstd=1.4.9=hc52992f_0
+  - _libgcc_mutex=0.1=conda_forge
+  - _openmp_mutex=4.5=1_gnu
+  - brotlipy=0.7.0=py38h98b8a6f_1001
+  - ca-certificates=2021.10.8=h1084571_0
+  - certifi=2021.10.8=py38hf8b3453_0
+  - cffi=1.14.6=py38hae6c81b_1
+  - chardet=4.0.0=py38hf8b3453_1
+  - charset-normalizer=2.0.0=pyhd8ed1ab_0
+  - cryptography=35.0.0=py38h2987e8e_1
+  - dataclasses=0.8=pyhc8e2a94_3
+  - dnspython=1.16.0=py_1
+  - ecdsa=0.17.0=pyhd8ed1ab_0
+  - eventlet=0.32.0=pyhd8ed1ab_0
+  - flask=2.0.2=pyhd8ed1ab_0
+  - gmp=6.2.1=hea85c5d_0
+  - greenlet=1.1.2=py38ha35a538_0
+  - icu=68.1=hea85c5d_0
+  - itsdangerous=2.0.1=pyhd8ed1ab_0
+  - jinja2=3.0.2=pyhd8ed1ab_0
+  - ld_impl_linux-ppc64le=2.36.1=ha35d02b_2
+  - libffi=3.4.2=h3b9df90_4
+  - libgcc-ng=11.2.0=h7698a5e_11
+  - libgomp=11.2.0=h7698a5e_11
+  - libstdcxx-ng=11.2.0=habdf983_11
+  - libuv=1.42.0=h4e0d66e_0
+  - libzlib=1.2.11=h339bb43_1013
+  - markupsafe=2.0.1=py38h98b8a6f_0
+  - ncurses=6.2=hea85c5d_4
+  - nodejs=16.12.0=h4993e3a_0
+  - openssl=1.1.1l=h4e0d66e_0
+  - pip=21.3.1=pyhd8ed1ab_0
+  - pycparser=2.20=pyh9f0ad1d_2
+  - pycryptodome=3.11.0=py38hfe76bfe_0
+  - pyopenssl=21.0.0=pyhd8ed1ab_0
+  - pysocks=1.7.1=py38hf8b3453_3
+  - python=3.8.12=h57873ef_1_cpython
+  - python_abi=3.8=2_cp38
+  - readline=8.1=h5c45dff_0
+  - requests=2.26.0=pyhd8ed1ab_0
+  - setuptools=58.2.0=py38hf8b3453_0
+  - six=1.16.0=pyh6c4a22f_0
+  - sqlite=3.36.0=h4e2196e_2
+  - tk=8.6.11=h41c6715_1
+  - urllib3=1.26.7=pyhd8ed1ab_0
+  - werkzeug=2.0.1=pyhd8ed1ab_0
+  - wheel=0.37.0=pyhd8ed1ab_1
+  - xz=5.2.5=h6eb9509_1
+  - zlib=1.2.11=h339bb43_1013
   - pip:
-    - absl-py==0.13.0
     - aiohttp==3.7.4.post0
     - aiohttp-cors==0.7.0
-    - alembic==1.6.5
+    - amqp==5.0.6
     - async-timeout==3.0.1
     - attrs==21.2.0
-    - cachetools==4.2.2
-    - cliff==3.8.0
-    - cmaes==0.8.2
-    - cmd2==2.1.2
-    - colorama==0.4.4
+    - click==7.1.2
     - colorclass==2.2.0
-    - colorlog==5.0.1
+    - colorlog==6.5.0
     - croniter==1.0.15
-    - cycler==0.10.0
     - faust==1.10.4
-    - fsspec==2021.7.0
-    - google-auth==1.34.0
-    - google-auth-oauthlib==0.4.5
-    - greenlet==1.1.1
-    - grpcio==1.39.0
+    - flatbuffers==2.0
+    - idna==3.3
     - kafka-python==1.4.7
-    - kiwisolver==1.3.1
-    - mako==1.1.4
-    - markdown==3.3.4
-    - matplotlib==3.4.2
+    - kombu==5.1.0
     - mode==4.3.2
-    - multidict==5.1.0
+    - multidict==5.2.0
     - mypy-extensions==0.4.3
-    - oauthlib==3.1.1
+    - numpy==1.21.3
     - opentracing==1.3.0
-    - optuna==2.9.1
-    - packaging==21.0
-    - pbr==5.6.0
-    - prettytable==2.1.0
-    - pyasn1==0.4.8
-    - pyasn1-modules==0.2.8
-    - pydeprecate==0.3.1
-    - pyparsing==2.4.7
-    - pyperclip==1.8.2
-    - python-editor==1.0.4
+    - protobuf==3.19.0
+    - python-dateutil==2.8.2
     - python-engineio==3.2.0
     - python-socketio==4.0.0
-    - pytorch-forecasting==0.9.0
-    - pytorch-lightning==1.4.1
-    - requests-oauthlib==1.3.0
     - robinhood-aiokafka==1.1.6
-    - rsa==4.7.2
-    - sqlalchemy==1.4.22
-    - stevedore==3.3.0
-    - tensorboard==2.6.0
-    - tensorboard-data-server==0.6.1
-    - tensorboard-plugin-wit==1.8.0
     - terminaltables==3.1.0
-    - torchmetrics==0.4.1
-    - typing-extensions==3.10.0.0
+    - typing-extensions==3.10.0.2
     - venusian==1.2.0
-    - wcwidth==0.2.5
-    - yarl==1.6.3
-prefix: /root/anaconda3/envs/opence
+    - vine==5.0.0
+    - yarl==1.7.0
+prefix: /anaconda3/envs/opence
