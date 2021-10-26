@@ -1,0 +1,5 @@
+FROM power10-mma-baseimage
+
+WORKDIR /Kafka-DayTrader-AI-example/AI_Component/src/stream-processing
+
+CMD ["/anaconda3/envs/opence/bin/python3", "streaming_app.py", "worker", "-l", "info"]

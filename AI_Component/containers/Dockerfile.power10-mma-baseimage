@@ -1,0 +1,22 @@
+FROM ubuntu:20.04
+
+###### apt updates #####
+RUN apt-get update && \
+	apt-get install --yes wget git build-essential && \
+	apt-get clean
+
+##### conda setup #####
+COPY files/opence-conda-env.yml files/onnxruntime-1.8.2-cp38-cp38-linux_ppc64le.whl /
+
+RUN wget https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-ppc64le.sh && \
+	bash Anaconda3-2021.05-Linux-ppc64le.sh -b -p /anaconda3 && \
+	/anaconda3/bin/conda init && \
+	/anaconda3/bin/conda config --prepend channels https://opence.mit.edu && \
+	echo "conda activate opence" >> /root/.bashrc && \
+	/anaconda3/bin/conda env create -f /opence-conda-env.yml && \
+	/anaconda3/envs/opence/bin/pip install /onnxruntime-1.8.2-cp38-cp38-linux_ppc64le.whl
+
+##### project setup #####
+RUN git clone https://github.com/ThePrez/Kafka-DayTrader-AI-example
+
+

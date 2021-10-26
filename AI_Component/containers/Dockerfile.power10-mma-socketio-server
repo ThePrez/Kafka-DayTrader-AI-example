@@ -1,0 +1,7 @@
+FROM power10-mma-baseimage
+
+WORKDIR /Kafka-DayTrader-AI-example/AI_Component/src/visualization
+
+EXPOSE 9081
+
+CMD ["/anaconda3/envs/opence/bin/python3", "socketio-server/server.py"]

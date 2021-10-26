@@ -1,0 +1,9 @@
+FROM power10-mma-baseimage
+
+WORKDIR /Kafka-DayTrader-AI-example/AI_Component/src/inference-server
+
+COPY files/n-beats.onnx .
+
+EXPOSE 5000
+
+CMD ["/anaconda3/envs/opence/bin/python3", "inference_server_onnx.py"]
