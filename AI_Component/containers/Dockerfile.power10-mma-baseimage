@@ -2,7 +2,7 @@ FROM ubuntu:20.04
 
 ###### apt updates #####
 RUN apt-get update && \
-	apt-get install --yes wget git build-essential && \
+	apt-get install --yes wget git build-essential vim && \
 	apt-get clean
 
 ##### conda setup #####

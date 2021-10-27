@@ -2,6 +2,7 @@ images=(
 	"baseimage"
 	"inference-server"
 	"stream-processing"
+	"socketio-server"
 )
 
 for image in ${images[@]}; do
