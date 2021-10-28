@@ -3,6 +3,7 @@ images=(
 	"inference-server"
 	"stream-processing"
 	"socketio-server"
+	"mqtt-realtime-chart"
 )
 
 for image in ${images[@]}; do

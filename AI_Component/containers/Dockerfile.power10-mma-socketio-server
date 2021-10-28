@@ -4,4 +4,4 @@ WORKDIR /Kafka-DayTrader-AI-example/AI_Component/src/visualization
 
 EXPOSE 9081
 
-CMD ["/anaconda3/envs/opence/bin/python3", "socketio-server/server.py"]
+CMD ["python3", "socketio-server/server.py"]

@@ -6,4 +6,4 @@ COPY files/n-beats.onnx .
 
 EXPOSE 5000
 
-CMD ["/anaconda3/envs/opence/bin/python3", "inference_server_onnx.py"]
+CMD ["python3", "inference_server_onnx.py"]

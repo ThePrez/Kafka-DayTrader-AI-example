@@ -1,6 +1,6 @@
 FROM power10-mma-baseimage
 
-RUN git clone https://github.com/MaximeDeloche/mqtt-realtime-chart-client /Kafka-DayTrader-AI-example/AI_Component/src/visualization
+RUN git clone https://github.com/MaximeDeloche/mqtt-realtime-chart-client /Kafka-DayTrader-AI-example/AI_Component/src/visualization/mqtt-realtime-chart-client
 
 WORKDIR /Kafka-DayTrader-AI-example/AI_Component/src/visualization/mqtt-realtime-chart-client
 

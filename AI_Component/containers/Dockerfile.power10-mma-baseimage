@@ -16,6 +16,8 @@ RUN wget https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-ppc64le.sh &&
 	/anaconda3/bin/conda env create -f /opence-conda-env.yml && \
 	/anaconda3/envs/opence/bin/pip install /onnxruntime-1.8.2-cp38-cp38-linux_ppc64le.whl
 
+ENV PATH="/anaconda3/envs/opence/bin:${PATH}"
+
 ##### project setup #####
 RUN git clone https://github.com/ThePrez/Kafka-DayTrader-AI-example
 
