@@ -7,6 +7,6 @@ images=(
 )
 
 for image in ${images[@]}; do
-	echo -e "\n########## power10-mma-$image ##########\n"
-	podman build . -f "Dockerfile.power10-mma-$image" -t "power10-mma-$image"
+	echo -e "\n########## [BUILD] power10-mma-$image ##########\n"
+	podman build . -f "Dockerfile.power10-mma-$image" -t "quay.io/mdeloche/power10-mma-$image"
 done

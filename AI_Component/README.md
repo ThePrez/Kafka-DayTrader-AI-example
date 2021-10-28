@@ -1,6 +1,41 @@
-# AI-Usecases
+# AI_Component
 
-## Environment setup
+The components of the AI part (as shown in the diagram below) are containerized
+and available at the following repositories:
+
+- https://quay.io/repository/mdeloche/power10-mma-baseimage (used as root image for other components)
+- https://quay.io/repository/mdeloche/power10-mma-inference-server
+- https://quay.io/repository/mdeloche/power10-mma-stream-processing
+- https://quay.io/repository/mdeloche/power10-mma-socketio-server
+- https://quay.io/repository/mdeloche/power10-mma-mqtt-realtime-chart
+
+![AI Component architecture](./AI_Component_architecture.png)
+
+The recommended way is to use these images and the `run_demo.sh` script. Instructions to run manually are also provided below.
+
+## [Containers] How to run
+
+Requirements:
+
+- `podman`
+
+### Start demo
+
+Use the `run_demo.sh` script, providing the URL of the Kafka broker from which to read DayTrader data:
+
+```
+KAFKA_BROKER="kafka://10.20.30.40:9092" ./run_demo.sh
+```
+
+### Stop demo
+
+```
+./stop_demo.sh
+```
+
+## [Manual setup] How to run
+
+### Environment setup
 
 * ensure that Git repository is cloned
 
@@ -30,8 +65,6 @@ conda create -n opence python=3.8
 conda install flask numpy pandas scipy scikit-learn statsmodels kombu eventlet nodejs
 pip install pytorch_forecasting faust python-socketio==4.0.0 python-engineio==3.2.0
 ```
-
-## How To
 
 1. Launch RabbitMQ (`docker login docker.io` might be required)
 
