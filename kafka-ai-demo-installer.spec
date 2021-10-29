@@ -1,6 +1,6 @@
 %undefine _disable_source_fetch
 Name: kafka-ai-demo-installer
-Version: 0.0.1
+Version: 0.0.2
 Release: 0
 License: Apache-2.0
 Summary: Installer for the Kafka AI Demo
@@ -8,7 +8,7 @@ Url: https://github.com/ThePrez/Kafka-DayTrader-AI-example
 
 
 Requires: ca-certificates-mozilla
-Requires: wget unzip gzip git tar-gnu openjdk-11 maven coreutils-gnu sed-gnu grep-gnu
+Requires: wget unzip gzip service-commander tar-gnu openjdk-11 maven coreutils-gnu sed-gnu grep-gnu
 
 Source0: install.sh
 
@@ -34,5 +34,8 @@ cp %{SOURCE0} %{buildroot}/QOpenSys/QIBM/UserData/Kafka-AI-Demo-installer/
 
 
 %changelog
+* Fri Oct 29 2021 Jesse Gorzinski <jgorzins@us.ibm.com> - 0.0.2
+- Add dependency on 'service-commander'
+- remove dependency on git
 * Wed Aug 18 2021 Jesse Gorzinski <jgorzins@us.ibm.com> - 0.0.1
 - initial RPM release
