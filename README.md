@@ -27,8 +27,7 @@ This project also requires an IBM i user profile and schema to be created of the
 First, install the `kafka-ai-demo-installer` RPM, which will ensure that any requisites are installed (Service Commander will need to be installed separately, as shown below)
 
 ```
-yum install https://github.com/ThePrez/ServiceCommander-IBMi/releases/download/v0.4.1/sc-0.4.1-0.ibmi7.2.ppc64.rpm
-yum install https://github.com/ThePrez/Kafka-DayTrader-AI-example/releases/download/v0.0.1/kafka-ai-demo-installer-0.0.1-0.ibmi7.2.ppc64.rpm
+yum install https://github.com/ThePrez/Kafka-DayTrader-AI-example/releases/download/v0.0.1/kafka-ai-demo-installer-0.0.2-0.ibmi7.2.ppc64.rpm
 ```
 
 That RPM will place the installer script at `/QOpenSys/QIBM/UserData/Kafka-AI-Demo-installer/install.sh`
@@ -60,8 +59,7 @@ DONE!!
 ## Offline install (without Internet access) -- WARNING: untested and unlikely to work!
 
 First, download the following files and upload them to a directory on IBM i:
-- https://github.com/ThePrez/ServiceCommander-IBMi/releases/download/v0.4.1/sc-0.4.1-0.ibmi7.2.ppc64.rpm
-- https://github.com/ThePrez/Kafka-DayTrader-AI-example/releases/download/v0.0.1/kafka-ai-demo-installer-offline-0.0.1-0.ibmi7.2.ppc64.rpm
+- https://github.com/ThePrez/Kafka-DayTrader-AI-example/releases/download/v0.0.1/kafka-ai-demo-installer-offline-0.0.2-0.ibmi7.2.ppc64.rpm
 
 Then, `cd` to the directory where you have placed these RPMs and run the following commands to install them (you may need to also install other requisite RPMs):
 ```
