@@ -8,12 +8,12 @@ run_app () {
 	if [ "$app_name" == "rabbitmq" ]; then
 		image_name="rabbitmq:3-management"
 	else
-		image_name="power10-mma-$app_name"
+		image_name="quay.io/mdeloche/power10-mma-$app_name"
 	fi
 	shift
 	
 	echo -e "\n##### power10-mma-$app_name #####\n"
-	podman run --network host -d --name "power10-mma-$app_name" $@ "quay.io/mdeloche/$image_name"
+	podman run --network host -d --name "power10-mma-$app_name" $@ "$image_name"
 }
 
 run_app "rabbitmq"
