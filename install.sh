@@ -156,7 +156,7 @@ sc stop daytrader
 echo "==============================================="
 echo " Downloading Kafka and Zookeeper..."
 echo "==============================================="
-wget -c https://dlcdn.apache.org/kafka/3.0.0/kafka_2.13-3.0.0.tgz -O kafka.tgz
+wget -c https://downloads.apache.org/kafka/3.3.1/kafka_2.13-3.3.1.tgz -O kafka.tgz
 
 echo "==============================================="
 echo " Installing Kafka and Zookeeper..."
